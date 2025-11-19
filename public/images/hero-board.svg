@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Board game illustration</title>
+  <desc id="desc">Abstract illustration of board game pieces and beer</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#171a21" />
+      <stop offset="100%" stop-color="#0f1115" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)" />
+  <g fill="#3fb950" opacity="0.75">
+    <circle cx="130" cy="140" r="60" />
+    <circle cx="210" cy="180" r="30" />
+    <rect x="340" y="320" width="280" height="160" rx="20" />
+    <circle cx="540" cy="200" r="90" opacity="0.55" />
+    <path d="M590 420h80l-20 120h-40z" opacity="0.65" />
+  </g>
+  <g fill="#f59e0b" opacity="0.8">
+    <circle cx="300" cy="240" r="18" />
+    <circle cx="360" cy="220" r="14" />
+    <rect x="180" y="360" width="80" height="80" rx="12" />
+    <path d="M520 140l70 40-70 40z" />
+  </g>
+</svg>

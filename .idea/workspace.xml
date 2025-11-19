@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e5661b15-a712-48c9-8adc-b68ee99198e8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panda.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/panda.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_components/Header/LoginDialog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/Header/LoginDialog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_components/Header/MobileMenu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/Header/MobileMenu/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_components/Header/NavbarButtons/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/Header/NavbarButtons/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_components/Header/RegisterDialog/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/Header/RegisterDialog/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_components/Header/RegisterDialog/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/Header/RegisterDialog/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_components/HeroSection/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_components/HeroSection/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/contact/_components/Card/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/contact/_components/Card/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/contact/_components/ContactForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact/_components/ContactForm/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/contact/_components/ContactInfo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact/_components/ContactInfo/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/contact/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/menu/_components/MenuPageClient/MenuItemsList/MenuItemCard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/menu/_components/MenuPageClient/MenuItemsList/MenuItemCard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/menu/_components/MenuPageClient/Pagination/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/menu/_components/MenuPageClient/Pagination/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/menu/_components/MenuPageClient/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/menu/_components/MenuPageClient/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/menu/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/menu/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/profile/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/profile/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/reservation/_components/Filters/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/reservation/_components/Filters/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/reservation/_components/Filters/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/reservation/_components/Filters/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/reservation/_components/Table/ReservationCard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/reservation/_components/Table/ReservationCard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/reservation/_components/Table/ReservationCard/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/reservation/_components/Table/ReservationCard/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/reservation/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/reservation/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/reservation/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/reservation/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ButtonLink/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ButtonLink/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Loader/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loader/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Map/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styled-system/tokens/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/styled-system/tokens/index.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styled-system/tokens/tokens.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styled-system/tokens/tokens.d.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="35dnKqhcgjF09g1o5E2zRodxLSQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/petr/Downloads/internetove technologie projekt/board-zone&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\petr\\Downloads\\internetove technologie projekt\\board-zone\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="npm.Next.js: server-side">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: server-side" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.27397.92" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e5661b15-a712-48c9-8adc-b68ee99198e8" name="Changes" comment="" />
+      <created>1763448754433</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763448754433</updated>
+      <workItem from="1763448755706" duration="3118000" />
+      <workItem from="1763534714741" duration="757000" />
+      <workItem from="1763584389635" duration="69000" />
+      <workItem from="1763584504134" duration="52000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,0 +1,33 @@
+@layer reset, base, tokens, recipes, utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--colors-primary, #3fb950);
+  text-decoration-thickness: 0.1em;
+}
+
+a:hover,
+a:focus {
+  color: var(--colors-primary, #3fb950);
+}
+
+img,
+picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
