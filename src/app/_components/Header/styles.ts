@@ -5,7 +5,7 @@ export const siteHeader = css({
   insetInline: 0,
   top: 0,
   zIndex: 50,
-  bg: "secondary_dark",
+  bg: "surface",
 
   display: "flex",
   justifyContent: "center",
@@ -16,8 +16,13 @@ export const siteHeaderInner = css({
   alignItems: "center",
   justifyContent: "space-between",
   gap: "md",
-  py: "0.85rem",
+  my: "0.85rem",
   width: "min(100%, 1080px)",
+
+  marginInline: "1rem",
+  sm: {
+    marginInline: "2rem",
+  },
 })
 
 export const siteHeaderBrand = css({
@@ -36,6 +41,10 @@ export const mobileMenuButton = css({
   display: {
     base: "block",
     lg: "none",
+  },
+
+  "& svg": {
+    marginLeft: "5px",
   },
 })
 

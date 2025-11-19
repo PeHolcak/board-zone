@@ -12,9 +12,14 @@ export const layoutBody = css({
 })
 
 export const main = css({
-  mt: "7rem",
+  m: "7rem 1rem 0",
 
   flex: "1 1 auto",
+
+  sm: {
+    marginInline: "2rem",
+  },
+
   md: {
     paddingBottom: 0,
   },

@@ -17,8 +17,12 @@ export const mobileDrawer = css({
 
 export const mobileDrawerClose = css({
   position: "absolute",
-  top: "md",
-  right: "md",
+  top: "1.75rem",
+
+  right: "1rem",
+  sm: {
+    right: "2rem",
+  },
 })
 
 export const mobileDrawerNavList = css({
