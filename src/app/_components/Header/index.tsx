@@ -41,8 +41,7 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [modalType, setModalType] = useState<ModalType>(null)
 
-  const { status } = useSession()
-  const isAuthenticated = status === "authenticated"
+  const { status, data: session } = useSession()
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/"
@@ -129,7 +128,6 @@ export const Header = () => {
       <MobileMenu
         isOpen={isOpen}
         navItems={navItems}
-        isAuthenticated={isAuthenticated}
         onClose={handleCloseMenu}
         onLogin={handleLogin}
         onRegister={handleRegister}

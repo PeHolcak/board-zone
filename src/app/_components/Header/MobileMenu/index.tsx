@@ -1,4 +1,6 @@
 import Link from "next/link"
+import { useSession } from "next-auth/react"
+
 import { Button } from "@/components/CTA/Button"
 
 import { XmarkSolid } from "@lineiconshq/free-icons"
@@ -23,7 +25,6 @@ type NavItem = {
 type MobileMenuProps = {
   isOpen: boolean
   navItems: NavItem[]
-  isAuthenticated: boolean
   onClose: () => void
   onLogin: () => void
   onRegister: () => void
@@ -34,17 +35,21 @@ type MobileMenuProps = {
 export const MobileMenu = ({
   isOpen,
   navItems,
-  isAuthenticated,
   onClose,
   onLogin,
   onRegister,
   onLogout,
   isActive,
 }: MobileMenuProps) => {
+  const { status, data: session } = useSession()
   if (!isOpen) {
     return null
   }
 
+  const isAuthenticated = status === "authenticated"
+  const isAdmin = session?.user?.role === "admin"
+
+  console.log("isAdmin", isAdmin)
   return (
     <div className={mobileDrawer}>
       <IconButton
@@ -75,7 +80,21 @@ export const MobileMenu = ({
       </nav>
 
       <div className={mobileDrawerCta}>
-        {!isAuthenticated ? (
+        {isAuthenticated ? (
+          <>
+            {isAdmin && (
+              <ButtonLink href="/admin" variant="ghost">
+                Admin
+              </ButtonLink>
+            )}
+            <ButtonLink href="/profile" onClick={onClose} variant="ghost" fullWidth>
+              Profil
+            </ButtonLink>
+            <Button variant="primary" onClick={onLogout} fullWidth>
+              Odhlásit
+            </Button>
+          </>
+        ) : (
           <>
             <Button
               variant="primary"
@@ -94,15 +113,6 @@ export const MobileMenu = ({
               }}
             >
               Registrovat
-            </Button>
-          </>
-        ) : (
-          <>
-            <ButtonLink href="/profile" onClick={onClose} variant="ghost" fullWidth>
-              Profil
-            </ButtonLink>
-            <Button variant="primary" onClick={onLogout} fullWidth>
-              Odhlásit
             </Button>
           </>
         )}
