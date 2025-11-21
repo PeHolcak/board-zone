@@ -1,6 +1,7 @@
 "use client"
 
 import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { toast } from "sonner"
 
 import { Button } from "@/components/CTA/Button"
@@ -10,12 +11,7 @@ import { Card } from "@/components/Card"
 
 import { submitContact } from "./actions"
 import { form } from "./styles"
-
-type ContactFormValues = {
-  name: string
-  email: string
-  message: string
-}
+import { contactFormSchema, type ContactFormValues } from "./schema"
 
 export const ContactForm = () => {
   const {
@@ -24,6 +20,7 @@ export const ContactForm = () => {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -55,15 +52,7 @@ export const ContactForm = () => {
           register={register}
           error={errors.name?.message}
           placeholder="Vaše jméno"
-          rules={{
-            required: "Jméno je povinné",
-            minLength: {
-              value: 2,
-              message: "Jméno musí mít alespoň 2 znaky",
-            },
-          }}
         />
-
         <FormInput
           name="email"
           type="email"
@@ -71,28 +60,13 @@ export const ContactForm = () => {
           register={register}
           error={errors.email?.message}
           placeholder="např. jana@example.cz"
-          rules={{
-            required: "E-mail je povinný",
-            pattern: {
-              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-              message: "Zadejte platný e-mail",
-            },
-          }}
         />
-
         <FormTextarea<ContactFormValues>
           name="message"
           label="Zpráva"
           register={register}
           error={errors.message?.message}
           placeholder="Sdělte nám, s čím vám můžeme pomoct."
-          rules={{
-            required: "Zpráva je povinná",
-            minLength: {
-              value: 10,
-              message: "Zpráva musí mít alespoň 10 znaků",
-            },
-          }}
         />
 
         <Button variant="primary" disabled={isSubmitting}>
