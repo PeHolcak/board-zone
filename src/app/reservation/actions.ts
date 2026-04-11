@@ -25,7 +25,6 @@ export async function submitReservation({
   gameName?: string
   recaptchaToken: string
 }) {
-  // reCAPTCHA v3 verification
   await verifyRecaptcha(recaptchaToken)
   const session = await getServerSession(authOptions)
   if (!session?.user?.email) {
@@ -85,7 +84,6 @@ export async function cancelReservation(reservationId: number) {
     throw new Error("Tuto rezervaci již nelze zrušit.")
   }
 
-  // Kontrola 24 hodin předem (pouze pro běžné uživatele)
   if (!isAdmin) {
     const now = new Date()
     const timeDifferenceMs = existingReservation.reservationDate.getTime() - now.getTime()
