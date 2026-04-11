@@ -1,88 +1,84 @@
 import type { Metadata } from "next"
-import { count } from "drizzle-orm"
+import { count, or, ilike } from "drizzle-orm"
 
-import { AdminOnly } from "@/components/AdminOnly"
 import { db } from "@/db/client"
 import { contactMessages } from "@/db/schema"
-import { Header } from "@/components/MenuHeader"
 import { Card } from "@/components/Card"
 import { Header2 } from "@/components/SectionTitle"
 
 import { MessagesPagination } from "./_components/MessagesPagination"
+import { MessagesFilter } from "./_components/MessagesFilter"
 import { CardItem } from "./_components/CardItem"
 import { emptyState, list, cardGrid, section } from "./styles"
-import { ReservationTable } from "./_components/ReservationTable"
 
 export const metadata: Metadata = {
-  title: "Administrace | BoardZone",
-  description: "Administrační rozhraní pro správu BoardZone.",
+  title: "Zprávy | Administrace | BoardZone",
+  description: "Správa kontaktních zpráv.",
 }
 
 export const dynamic = "force-dynamic"
 
-const PAGE_SIZE = 4
+const PAGE_SIZE = 6
 
 type AdminPageProps = {
   searchParams?: {
     page?: string
+    search?: string
   }
 }
 
-const ROWS = [
-  { id: 1, name: "Jan Novák", email: "jan.novak@example.com", role: "admin" },
-  { id: 2, name: "Petr Holčák", email: "petr@example.com", role: "editor" },
-  { id: 3, name: "Lucie Malá", email: "lucie@example.com", role: "user" },
-]
-
-export default async function AdminPage({ searchParams }: AdminPageProps) {
+export default async function AdminMessagesPage({ searchParams }: AdminPageProps) {
   const params = await searchParams
   const rawPage = Number(params?.page ?? "1")
   const currentPage = Number.isNaN(rawPage) || rawPage < 1 ? 1 : rawPage
   const offset = (currentPage - 1) * PAGE_SIZE
 
-  const messages = await db.query.contactMessages.findMany({
-    limit: PAGE_SIZE,
-    offset,
-    orderBy: (tbl, { desc }) => desc(tbl.createdAt),
-  })
+  const normalizedSearch = params?.search ? `%${params.search}%` : undefined
+  const searchCondition = normalizedSearch
+    ? or(
+        ilike(contactMessages.name, normalizedSearch),
+        ilike(contactMessages.email, normalizedSearch),
+        ilike(contactMessages.message, normalizedSearch)
+      )
+    : undefined
 
-  const totalRows = await db.select({ value: count() }).from(contactMessages)
-  const total = totalRows[0]?.value ?? 0
+  const [totalRowsResult, messages] = await Promise.all([
+    db.select({ value: count() }).from(contactMessages).where(searchCondition),
+    db.query.contactMessages.findMany({
+      where: searchCondition,
+      limit: PAGE_SIZE,
+      offset,
+      orderBy: (tbl, { desc }) => desc(tbl.createdAt),
+    })
+  ])
+
+  const total = totalRowsResult[0]?.value ?? 0
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE))
 
   return (
-    <AdminOnly>
-      <Header
-        title="Stránka pro administratory"
-        description={`Kontaktní zprávy (${total} celkem)`}
-      />
+    <div className={section}>
+      <Header2>Kontaktní zprávy ({total})</Header2>
+      
+      <MessagesFilter />
 
-      <div className={section}>
-        <Header2>Tabulka rezervací</Header2>
-        <ReservationTable rows={ROWS} />
-      </div>
+      {messages.length === 0 ? (
+        <p className={emptyState} style={{ marginTop: "1rem" }}>Žádné zprávy neodpovídají hledání.</p>
+      ) : (
+        <>
+          <ul className={list}>
+            {messages.map((msg) => (
+              <Card key={msg.id} className={cardGrid}>
+                <CardItem label="Jméno" value={msg.name} />
+                <CardItem label="Email" value={msg.email} />
+                <CardItem label="Datum" value={msg.createdAt?.toLocaleString("cs-CZ")} />
+                <CardItem label="Zpráva" value={msg.message} />
+              </Card>
+            ))}
+          </ul>
 
-      <div className={section}>
-        <Header2>Seznam zpráv</Header2>
-        {messages.length === 0 ? (
-          <p className={emptyState}>Žádné zprávy k zobrazení.</p>
-        ) : (
-          <>
-            <ul className={list}>
-              {messages.map((msg) => (
-                <Card key={msg.id} className={cardGrid}>
-                  <CardItem label="Jméno" value={msg.name} />
-                  <CardItem label="Email" value={msg.email} />
-                  <CardItem label="Datum" value={msg.createdAt?.toLocaleString("cs-CZ")} />
-                  <CardItem label="Zpráva" value={msg.message} />
-                </Card>
-              ))}
-            </ul>
-
-            <MessagesPagination currentPage={currentPage} totalPages={totalPages} />
-          </>
-        )}
-      </div>
-    </AdminOnly>
+          <MessagesPagination currentPage={currentPage} totalPages={totalPages} />
+        </>
+      )}
+    </div>
   )
 }

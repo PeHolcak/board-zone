@@ -8,6 +8,9 @@ export const filtersRow = css({
   "@media (min-width: 768px)": {
     gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
   },
+  "@media (min-width: 1024px)": {
+    gridTemplateColumns: "repeat(3, minmax(0, 1fr)) max-content",
+  },
 })
 
 export const filterField = css({

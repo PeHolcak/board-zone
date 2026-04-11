@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation"
+import Link from "next/link"
 import { getServerSession } from "next-auth"
 
 import type { Metadata } from "next"
@@ -20,6 +21,7 @@ import {
   profileValue,
   roleBadge,
 } from "./styles"
+import { Button, ButtonLink } from "@/components/CTA"
 
 export const metadata: Metadata = {
   title: "Můj profil | BoardZone",
@@ -101,6 +103,12 @@ export default async function ProfilePage() {
             <dd className={profileValue}>{formatDate(user.createdAt)}</dd>
           </div>
         </div>
+
+        <section style={{ marginTop: "2rem", display: "flex", justifyContent: "flex-end" }}>
+          <ButtonLink href="/profile/reservations">
+            Správa mých rezervací
+          </ButtonLink>
+        </section>
 
         <section style={{ marginTop: "2rem" }}>
           <h2 style={{ fontSize: "1.25rem", marginBottom: "0.75rem" }}>

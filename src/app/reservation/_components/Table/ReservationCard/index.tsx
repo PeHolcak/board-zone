@@ -1,52 +1,71 @@
-"use client"
+import { TableCardCapacityInfo } from "./TableCardCapacityInfo"
+import { TableCardFooter } from "./TableCardFooter"
+import { TableCardGameInfo } from "./TableCardGameInfo"
+import { TableCardHeader } from "./TableCardHeader"
+import { TableCardVisualisation } from "./TableCardVisualisation"
+import { infoArea, tableCard } from "./styles"
+import type { ReservationCardProps } from "./types"
+import {
+  getChairDistribution,
+  getSafeCapacity,
+  getSafeOccupiedSeats,
+  getSeatStates,
+  getTableState,
+} from "./utils"
 
-import { Button } from "@/components/CTA/Button"
-import { tableCard, tableHeader, tableName, tableCapacity, tableDescription } from "./styles"
-import { useSession } from "next-auth/react"
-import Loader from "@/components/Loader"
-import { Card } from "@/components/Card"
+export const ReservationCard = ({
+  tableId,
+  tableName,
+  capacity,
+  occupiedSeats,
+  isJoinable = true,
+  gameName,
+  isAuthenticated = false,
+  reservationDateTime,
+  reservationDuration,
+  isAdminMode = false,
+}: ReservationCardProps) => {
+  const safeCapacity = getSafeCapacity(capacity)
+  const safeOccupiedSeats = getSafeOccupiedSeats(occupiedSeats, safeCapacity)
 
-type ReservationCardProps = {
-  id: string
-  label: string
-  capacity: number
-}
+  const distribution = getChairDistribution(safeCapacity)
+  const seatStates = getSeatStates(distribution, safeOccupiedSeats)
+  const tableState = getTableState(
+    safeOccupiedSeats,
+    safeCapacity,
+    isJoinable
+  )
 
-const getDescription = (capacity: number) => {
-  if (capacity === 1) {
-    return "Ideální pro jednotlivce, kteří chtějí klidné a nerušené hraní."
-  }
-  if (capacity === 2) {
-    return "Perfektní pro dvojice, které si chtějí zahrát v pohodlném prostoru."
-  }
-  if (capacity <= 4) {
-    return "Skvělá volba pro menší skupiny, které hledají pohodlí a dostatek prostoru."
-  }
-  if (capacity <= 6) {
-    return "Výborné pro větší skupiny, které chtějí hrát spolu u jednoho stolu."
-  }
-
-  return "Prostorný stůl vhodný pro početnější skupiny."
-}
-
-export const ReservationCard = ({ label, capacity, id }: ReservationCardProps) => {
-  const { status } = useSession()
   return (
-    <Card>
-      <header className={tableHeader}>
-        <h3 className={tableName}>{label}</h3>
-        <p className={tableCapacity}>
-          Kapacita: {capacity} {capacity === 1 ? "osoba" : "osob"}
-        </p>
-      </header>
+    <div className={tableCard}>
+      <TableCardVisualisation
+        distribution={distribution}
+        seatStates={seatStates}
+        tableState={tableState}
+        occupiedSeats={safeOccupiedSeats}
+        capacity={safeCapacity}
+      />
 
-      <p className={tableDescription}>{getDescription(capacity)}</p>
-      {status === "loading" && <Loader />}
-      {status === "authenticated" && (
-        <Button onClick={() => alert(`Rezervovat ${label} (ID: ${id})`)} fullWidth>
-          Rezervovat
-        </Button>
-      )}
-    </Card>
+      <div className={infoArea}>
+        <TableCardHeader tableNameText={tableName} tableState={tableState} isAdminMode={isAdminMode} />
+        <TableCardGameInfo gameNameText={gameName} />
+        <TableCardCapacityInfo
+          occupiedSeats={safeOccupiedSeats}
+          capacity={safeCapacity}
+          tableState={tableState}
+        />
+        <TableCardFooter 
+          tableId={tableId}
+          tableName={tableName}
+          tableState={tableState} 
+          capacity={safeCapacity} 
+          occupiedSeats={safeOccupiedSeats} 
+          isAuthenticated={isAuthenticated}
+          reservationDateTime={reservationDateTime}
+          reservationDuration={reservationDuration}
+          isAdminMode={isAdminMode}
+        />
+      </div>
+    </div>
   )
 }

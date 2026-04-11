@@ -129,7 +129,7 @@ export interface UtilityValues {
 	borderSpacingY: Tokens["spacing"];
 	transitionProperty: "common" | "colors" | "size" | "position" | "background";
 	transition: "all" | "common" | "size" | "position" | "background" | "colors" | "opacity" | "shadow" | "transform";
-	animationName: "spin" | "ping" | "pulse" | "bounce";
+	animationName: "ping" | "pulse" | "bounce" | "spin";
 	rotate: "auto" | "auto-3d" | CssProperties["rotate"];
 	rotateX: CssProperties["rotate"];
 	rotateY: CssProperties["rotate"];
@@ -178,7 +178,7 @@ export interface UtilityValues {
 	srOnly: boolean;
 	debug: boolean;
 	containerName: CssProperties["containerName"];
-	colorPalette: "bg" | "surface" | "primary" | "accent" | "text" | "muted" | "borderSubtle";
+	colorPalette: "bg" | "surface" | "primary" | "primary_20" | "secondary" | "secondary_70" | "secondary_dark" | "accent" | "text" | "muted" | "borderSubtle" | "dark" | "darkText" | "ghostButton" | "white" | "error" | "inputBorder" | "black";
 	textStyle: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl";
 }
 
